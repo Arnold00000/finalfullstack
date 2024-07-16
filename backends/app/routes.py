@@ -45,19 +45,7 @@ def user_protected():
 
 
 
-@main.route("/userPage", methods=["GET"])
-@jwt_required()
-def user_page():
-    current_user = get_jwt_identity()
-    user = User.query.filter_by(username=current_user['username']).first()
-    if user:
-        user_data = {
-            "id": user.id,
-            "username": user.username,
-            "email": user.email
-        }
-        return jsonify(user_data), 200
-    return jsonify({"message": "User not found!"}), 404
+
 
 
 
