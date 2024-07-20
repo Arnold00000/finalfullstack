@@ -4,6 +4,8 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_cors import CORS
 from flask_jwt_extended import JWTManager
+from app.schemas import ma
+
 
 db = SQLAlchemy()
 migrate = Migrate()
@@ -21,6 +23,8 @@ def create_app():
     db.init_app(app)
     migrate.init_app(app, db)
     jwt.init_app(app)
+    ma.init_app(app)  # Initialize Marshmallow
+
 
     # Register blueprints
     from app.routes import main
