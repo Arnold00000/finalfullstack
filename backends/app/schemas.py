@@ -2,11 +2,12 @@
 from flask import Flask
 from flask_marshmallow import Marshmallow
 
+
 ma=Marshmallow()
 
 class DeviceSchema(ma.Schema):
     class Meta:
-        fields = ('id', 'username' 'imei', 'phonenumber', 'complaint')
+        fields = ('id', 'username', 'imei', 'phonenumber', 'complaint')
 
 class UserSchema(ma.Schema):
     class Meta:
